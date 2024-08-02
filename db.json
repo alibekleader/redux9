@@ -1,0 +1,49 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "firstName": "sayfiddin",
+      "lastName": "Mirkamolov",
+      "group": "A"
+    },
+    {
+      "id": "2",
+      "firstName": "Anvar",
+      "lastName": "O'rinboyev",
+      "group": "B"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "1",
+      "firstName": "sayfiddin",
+      "lastName": "Mirkamolov",
+      "level": "Senior"
+    },
+    {
+      "id": "2",
+      "firstName": "Sabriddin",
+      "lastName": "Mirkamolov",
+      "level": "Middle"
+    }
+  ],
+  "todos": [
+    {
+      "id": "777b",
+      "text": "react js",
+      "complete": false
+    },
+    {
+      "id": "5c53",
+      "text": "redux",
+      "complete": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "password"
+    }
+  ]
+}

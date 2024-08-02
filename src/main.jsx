@@ -1,21 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import { ConfigProvider } from "antd";
-import store from "./redux/store";
-import App from "./App";
-import "react-toastify/dist/ReactToastify.css";
-import "antd/dist/reset.css"; // Ant Design CSS fayli to'g'ri import qilingan
-import "./index.css"; // Custom CSS (agar bo'lsa)
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
 
-root.render(
-  <Provider store={store}>
-    <ConfigProvider>
-      <App />
-    </ConfigProvider>
-    <ToastContainer />
-  </Provider>
-);
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
+import store from './store/store'
+
+import 'antd/dist/reset.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+	<Provider store={store}>
+		<Router>
+			<App />
+		</Router>
+	</Provider>
+)

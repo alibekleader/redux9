@@ -1,24 +1,28 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
-import Login from "./components/Login";
-import Students from "./components/Students";
-import Dashboard from "./components/Dashboard";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "antd/dist/reset.css";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Students from './pages/Students';
+import Todo from './pages/Todo';
+import Teachers from './pages/Teachers'; // Import Teachers component
 
 const App = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/students" element={<Students />} />
-        </Routes>
-      </Router>
-      <ToastContainer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      {isAuthenticated ? (
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="students" element={<Students />} />
+          <Route path="todo" element={<Todo />} />
+          <Route path="teachers" element={<Teachers />} /> {/* Add Teachers route */}
+        </Route>
+      ) : (
+        <Route path="*" element={<Navigate to="/" />} />
+      )}
+    </Routes>
   );
 };
 
